@@ -15,15 +15,11 @@ const images = [
     alt: "Group of Horses Running"
   }
 ];
-const containerRef = document.createElement("li");
-containerRef.classList.add("js-container");
+
 const createListOfImg = image => {
-  containerRef.insertAdjacentHTML(
-    "beforeend",
-    `<li><img src="${image.url}" alt="${image.alt}" width="300" height="200"></li>`
-  );
-  return containerRef;
+  return  `<li><img src="${image.url}" alt="${image.alt}" width="300" height="200"></li>`
 };
 const listOfImg = images.map(image => createListOfImg(image));
+const JoinedListOfImg = listOfImg.join('');
 const galleryList = document.querySelector("#gallery");
-galleryList.append(...listOfImg);
+galleryList.insertAdjacentHTML('afterbegin',listOfImg);

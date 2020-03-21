@@ -7,14 +7,10 @@ const ingredients = [
   "Приправы"
 ];
 
-const jsList = document.createElement("ul");
-const listItemsRef = ingredients.reduce((item, ingredient) => {
-  item = document.createElement("li");
+const listItemsRef = ingredients.map(function(ingredient) {
+  const item = document.createElement("li");
   item.textContent = ingredient;
-  jsList.appendChild(item);
-  return jsList;
-},[]);
-
+  return item;
+});
 const listRef = document.querySelector("#ingredients");
-listRef.append(jsList);
-
+listRef.append(...listItemsRef);
